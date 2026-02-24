@@ -15,13 +15,11 @@ document.querySelectorAll(".reveal").forEach((node, index) => {
   observer.observe(node);
 });
 
-const form = document.querySelector(".signup-form");
 const note = document.getElementById("form-note");
-
-form?.addEventListener("submit", () => {
+const params = new URLSearchParams(window.location.search);
+if (params.get("submitted") === "true" && note) {
   note.textContent = "Thanks for joining Team Chyna. We will contact you soon.";
-  form.reset();
-});
+}
 
 const toggle = document.querySelector(".menu-toggle");
 const nav = document.getElementById("main-nav");
